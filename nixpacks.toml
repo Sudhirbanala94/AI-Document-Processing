@@ -1,0 +1,13 @@
+[phases.setup]
+nixPkgs = ['nodejs', 'python3']
+
+[phases.build]
+cmds = [
+    'npm install --prefix frontend',
+    'npm run build --prefix frontend', 
+    'mv frontend/build .',
+    'pip install -r requirements.txt'
+]
+
+[start]
+cmd = 'python app.py'
